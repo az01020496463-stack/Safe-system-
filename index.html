@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">نظام بصمة مؤسسة الأنظمة الآمنة</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        
+        <div class="language-selector">
+            <label for="lang-select" id="lang-label">اختر اللغة:</label>
+            <select id="lang-select" onchange="setLanguage(this.value)">
+                <option value="ar">العربية (Arabic)</option>
+                <option value="en">الإنجليزية (English)</option>
+                <option value="ur">الأوردو (اردو)</option>
+            </select>
+        </div>
+        
+        <div class="header">
+            <div class="company-name" id="company-name">مؤسسة الأنظمة الآمنة</div>
+            <h1 id="main-heading">بوابة تسجيل الدخول والخروج</h1>
+        </div>
+        
+        <p><span id="current-date-label">التاريخ الحالي:</span> <strong id="current-date"></strong></p>
+        
+        <input type="text" id="employee-name" placeholder="الاسم الكامل للموظف أو رقم البصمة">
+        
+        <div class="action-buttons">
+            <button id="btn-punch-in" onclick="submitAction('حضور')">تسجيل الحضور</button>
+            <button id="btn-punch-out" onclick="submitAction('انصراف')">تسجيل الانصراف</button>
+            <button id="btn-absent" onclick="submitAction('غياب')">تسجيل الغياب</button>
+            <button id="btn-accomplish" onclick="submitAction('إنجاز اليوم')">إنجاز اليوم</button>
+        </div>
+        
+        <div id="message"></div>
+        
+        <hr style="margin: 30px 0; border-top: 1px solid #eee;">
+        
+        <a href="#" id="report-button" onclick="generateReportEmail()">
+            إعداد تقرير اليوم وإرساله للمدير
+        </a>
+        
+        <p class="note">
+            <span id="note-1">**توضيح:** التقرير لا يرسل تلقائياً. عند الضغط على الزر أعلاه، سيفتح برنامج الإيميل ليقوم المستخدم بإرساله يدوياً.</span>
+        </p>
+        <p class="note important-note">
+            <span id="note-2">**مهم:** سيسألك المتصفح عن **موقعك الجغرافي** عند الضغط على الزر. يجب الموافقة لتسجيل البصمة.</span>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
